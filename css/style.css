@@ -295,6 +295,12 @@ h1, h2, h3, h4 {
     opacity: 1;
 }
 
+@media (max-width: 768px) {
+    .hero-frame {
+        object-position: center 25% !important; /* Lift images higher on tall screens */
+    }
+}
+
 /* Edge-blending vignette — fades image edges into the background */
 .hero-frames::before {
     content: '';
@@ -366,8 +372,14 @@ h1, h2, h3, h4 {
 
 .hero-phases-area {
     position: relative;
-    height: 400px; /* Restored and slightly increased to shift content down */
+    height: 400px;
     width: 100%;
+}
+
+@media (max-width: 768px) {
+    .hero-phases-area {
+        height: 320px; /* Reduced to shift content up on mobile */
+    }
 }
 
 .hero-phase {
@@ -391,6 +403,12 @@ h1, h2, h3, h4 {
     z-index: 20;
     max-width: 600px;
     width: 100%;
+}
+
+@media (max-width: 768px) {
+    .hero-static-content {
+        margin-top: 0.5rem;
+    }
 }
 
 .phase-tag {
