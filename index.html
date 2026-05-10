@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trident Roofing & Exteriors | Premium Exterior Engineering Ontario</title>
+    <meta name="description" content="Advanced exterior systems engineered to last. Serving South & Central Ontario with high-performance roofing, siding, and skylight systems.">
+    <link rel="stylesheet" href="css/style.css?v=33">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+
+    <header class="main-header">
+        <div class="header-content">
+            <a href="index.html" class="logo">
+                <img src="assets/logo.png" alt="Trident Roofing Logo" height="60">
+            </a>
+            <nav class="desktop-nav">
+                <a href="#services" class="nav-link">Services</a>
+                <a href="#why-trident" class="nav-link">The Trident Edge</a>
+                <a href="#about" class="nav-link">About</a>
+                <a href="#projects" class="nav-link">Portfolio</a>
+                <a href="contact.html" class="nav-link">Contact</a>
+            </nav>
+            <div class="header-actions">
+                <a href="tel:2266800996" class="phone-link">
+                    <i class="fas fa-phone-alt"></i> <span class="phone-text">(226) 680-0996</span>
+                </a>
+                <a href="contact.html" class="btn btn-primary header-cta">Book Audit</a>
+                <button class="hamburger" id="hamburger" aria-label="Menu">
+                    <span></span><span></span><span></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Scroll-Hijacked Cinematic Hero -->
+        <section class="hero-runway" id="hero-runway">
+            <div class="hero-sticky">
+                <!-- Animation Frames -->
+                <div class="hero-frames">
+                    <img src="assets/hero_1.png" alt="Old Roof" class="hero-frame active" data-frame="1">
+                    <img src="assets/hero_2.png" alt="Tear Off" class="hero-frame" data-frame="2">
+                    <img src="assets/hero_3.png" alt="Underlayment" class="hero-frame" data-frame="3">
+                    <img src="assets/hero_4.png" alt="Shingle Install" class="hero-frame" data-frame="4">
+                    <img src="assets/hero_5.png" alt="Roof Complete" class="hero-frame" data-frame="5">
+                    <img src="assets/hero_6.png" alt="Siding Install" class="hero-frame" data-frame="6">
+                    <img src="assets/hero_7.png" alt="Gutter Systems" class="hero-frame" data-frame="7">
+                </div>
+
+                <div class="hero-overlay">
+                    <div class="hero-phases-area">
+                        <div class="hero-phase active" data-phase="1">
+                            <span class="phase-tag">The Problem</span>
+                            <h1>Your Roof Is <br><span class="text-accent">Aging Out</span></h1>
+                            <p>Weather damage, curling shingles, and hidden leaks are silently destroying your home's value.</p>
+                        </div>
+                        <div class="hero-phase" data-phase="2">
+                            <span class="phase-tag">Step 1: Tear-Off</span>
+                            <h1>We Strip It <br><span class="text-accent">Down to Deck</span></h1>
+                            <p>No shortcuts. We remove all old shingles down to the plywood decking to inspect for hidden rot and damage.</p>
+                        </div>
+                        <div class="hero-phase" data-phase="3">
+                            <span class="phase-tag">Step 2: Underlayment</span>
+                            <h1>Ice & Water <br><span class="text-accent">Shield System</span></h1>
+                            <p>Synthetic underlayment and ice & water shield rolled across the entire deck — your critical moisture barrier before a single shingle goes down.</p>
+                        </div>
+                        <div class="hero-phase" data-phase="4">
+                            <span class="phase-tag">Step 3: Shingle Installation</span>
+                            <h1>Precision <br><span class="text-accent">Craftsmanship</span></h1>
+                            <p>Architectural-grade shingles installed on top of the underlayment by master-certified technicians. Every row nailed to spec.</p>
+                        </div>
+                        <div class="hero-phase" data-phase="5">
+                            <span class="phase-tag">Roof Complete</span>
+                            <h1>Sealed & <br><span class="text-accent">Protected</span></h1>
+                            <p>Your new architectural roof system is complete — drip edge, ridge vents, and flashing all installed to manufacturer spec.</p>
+                        </div>
+                        <div class="hero-phase" data-phase="6">
+                            <span class="phase-tag">Step 5: Siding</span>
+                            <h1>Premium Cladding<br><span class="text-accent">Systems</span></h1>
+                            <p>Old siding removed, house wrap inspected, and Westlake Royal architectural-grade siding fitted with precision corners and clean trim work.</p>
+                        </div>
+                        <div class="hero-phase" data-phase="7">
+                            <span class="phase-tag">Step 6: Eavestroughs & Gutter Guards</span>
+                            <h1>Total Exterior <br><span class="text-accent">Protection</span></h1>
+                            <p>Seamless aluminum eavestroughs and Alu-Rex gutter guards — the final layer that channels water away from your foundation year-round.</p>
+                        </div>
+                    </div>
+
+                    <!-- Persistent Hero Elements -->
+                    <div class="hero-static-content">
+                        <div class="hero-ctas">
+                            <a href="contact.html" class="btn btn-primary">Book Consultation <i class="fas fa-chevron-right"></i></a>
+                            <a href="tel:2266800996" class="btn btn-secondary">24/7 Response</a>
+                        </div>
+                        <div class="hero-trust">
+                            <span><i class="fas fa-check-circle"></i> Fully Insured</span>
+                            <span><i class="fas fa-check-circle"></i> Master Certified</span>
+                            <span><i class="fas fa-check-circle"></i> Canadian-First</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Progress Indicator -->
+                <div class="hero-progress">
+                    <div class="hero-progress-bar" id="hero-progress-bar"></div>
+                </div>
+                <div class="hero-phase-dots">
+                    <div class="phase-dot active" data-dot="1"></div>
+                    <div class="phase-dot" data-dot="2"></div>
+                    <div class="phase-dot" data-dot="3"></div>
+                    <div class="phase-dot" data-dot="4"></div>
+                    <div class="phase-dot" data-dot="5"></div>
+                    <div class="phase-dot" data-dot="6"></div>
+                    <div class="phase-dot" data-dot="7"></div>
+                </div>
+                <!-- Infinite Trust Scroll (Option 5) - Hero Overlay -->
+                <div class="trust-bar pc-hero-overlay">
+                    <div class="trust-scroll-container">
+                        <div class="trust-track">
+                            <div class="trust-item"><i class="fas fa-certificate"></i> GAF Certified</div>
+                            <div class="trust-item"><i class="fas fa-shield-alt"></i> IKO Approved</div>
+                            <div class="trust-item"><i class="fas fa-check-double"></i> Westlake Royal</div>
+                            <div class="trust-item"><i class="fas fa-hard-hat"></i> WSIB Compliant</div>
+                            <div class="trust-item"><i class="fas fa-tools"></i> Velux Specialist</div>
+                            <div class="trust-item"><i class="fas fa-star"></i> 5-Star Rated</div>
+                            <!-- Duplicate for infinite loop -->
+                            <div class="trust-item"><i class="fas fa-certificate"></i> GAF Certified</div>
+                            <div class="trust-item"><i class="fas fa-shield-alt"></i> IKO Approved</div>
+                            <div class="trust-item"><i class="fas fa-check-double"></i> Westlake Royal</div>
+                            <div class="trust-item"><i class="fas fa-hard-hat"></i> WSIB Compliant</div>
+                            <div class="trust-item"><i class="fas fa-tools"></i> Velux Specialist</div>
+                            <div class="trust-item"><i class="fas fa-star"></i> 5-Star Rated</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Floating Review Carousel -->
+        <div class="reviews-marquee">
+            <div class="marquee-content">
+                <!-- Review Cards (Duplicated for infinite scroll) -->
+                <div class="review-card-mini">
+                    <div class="stars">⭐⭐⭐⭐⭐</div>
+                    <p>"Diligent, excellent, responsible, honest, and very knowledgeable. They went above and beyond to ensure our roof was done right."</p>
+                    <h4>Viola Poletes</h4>
+                </div>
+                <div class="review-card-mini">
+                    <div class="stars">⭐⭐⭐⭐⭐</div>
+                    <p>"Garnet was professional, friendly, and extremely detail-oriented. The job was done perfectly."</p>
+                    <h4>Tarun Khullar</h4>
+                </div>
+                <div class="review-card-mini">
+                    <div class="stars">⭐⭐⭐⭐⭐</div>
+                    <p>"Efficient and professional. Site cleanup was very good and they followed up to ensure performance."</p>
+                    <h4>David Flett</h4>
+                </div>
+                <div class="review-card-mini">
+                    <div class="stars">⭐⭐⭐⭐⭐</div>
+                    <p>"Garnet spotted issues in a new roof install I had done (by a different company). Throrough and professional."</p>
+                    <h4>teg</h4>
+                </div>
+                <!-- Duplicate for loop -->
+                <div class="review-card-mini">
+                    <div class="stars">⭐⭐⭐⭐⭐</div>
+                    <p>"Diligent, excellent, responsible, honest, and very knowledgeable. They went above and beyond to ensure our roof was done right."</p>
+                    <h4>Viola Poletes</h4>
+                </div>
+                <div class="review-card-mini">
+                    <div class="stars">⭐⭐⭐⭐⭐</div>
+                    <p>"Garnet was professional, friendly, and extremely detail-oriented. The job was done perfectly."</p>
+                    <h4>Tarun Khullar</h4>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section Moved Below -->
+
+        <!-- Why Trident Comparison -->
+        <section id="why-trident" class="section-padding parallax-bg" style="background: var(--secondary-bg);">
+            <div class="container">
+                <h2 class="section-title reveal">The Trident Edge</h2>
+                <p class="section-subtitle reveal">Why engineered systems outlast standard roofing.</p>
+                <div class="comparison-wrapper">
+                    <div class="comp-box reveal">
+                        <h3 class="mb-md" style="color: #C45C4A;">Standard Contractors</h3>
+                        <ul style="list-style: none;">
+                            <li class="mb-sm"><i class="fas fa-times-circle" style="color: #C45C4A;"></i> <span>Open-flame torching (Fire risk)</span></li>
+                            <li class="mb-sm"><i class="fas fa-times-circle" style="color: #C45C4A;"></i> <span>"Patchwork" repair philosophy</span></li>
+                            <li class="mb-sm"><i class="fas fa-times-circle" style="color: #C45C4A;"></i> <span>Commodity-grade materials</span></li>
+                            <li class="mb-sm"><i class="fas fa-times-circle" style="color: #C45C4A;"></i> <span>High-pressure sales tactics</span></li>
+                        </ul>
+                    </div>
+                    <div class="comp-box trident-box reveal" style="transition-delay: 0.1s;">
+                        <h3 class="mb-md" style="color: var(--accent-blue);">Trident Engineering</h3>
+                        <ul style="list-style: none;">
+                            <li class="mb-sm"><i class="fas fa-check-circle" style="color: var(--accent-blue);"></i> <span>Advanced No-Heat Systems</span></li>
+                            <li class="mb-sm"><i class="fas fa-check-circle" style="color: var(--accent-blue);"></i> <span>Total Exterior Enclosure mindset</span></li>
+                            <li class="mb-sm"><i class="fas fa-check-circle" style="color: var(--accent-blue);"></i> <span>Architectural-grade materials</span></li>
+                            <li class="mb-sm"><i class="fas fa-check-circle" style="color: var(--accent-blue);"></i> <span>Technical consultation approach</span></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="grid-3 reveal-group">
+                    <div class="card-premium reveal">
+                        <i class="fas fa-award"></i>
+                        <h3>5.0 Google Rating</h3>
+                        <p>Consistency and trust verified by dozens of local homeowners across South & Central Ontario.</p>
+                    </div>
+                    <div class="card-premium reveal">
+                        <i class="fas fa-hard-hat"></i>
+                        <h3>Master Certified</h3>
+                        <p>Authorized installers for Velux, Alu-Rex, and Westlake Royal architectural systems.</p>
+                    </div>
+                    <div class="card-premium reveal">
+                        <i class="fas fa-shield-virus"></i>
+                        <h3>System Warranty</h3>
+                        <p>Industry-leading protection that covers both materials and performance for long-term peace of mind.</p>
+                    </div>
+                </div>
+
+                <!-- Engineering Standard Deep Dive -->
+                <div class="engineering-standard mt-xl reveal-group">
+                    <div class="standard-header reveal">
+                        <h3 class="text-center">The Trident Engineering Standard</h3>
+                        <p class="text-center text-dim mb-lg">Precision layers designed for the Ontario climate.</p>
+                    </div>
+                    
+                    <div class="blueprint-container">
+                            <img src="assets/blueprint.png" alt="Trident Engineering Blueprint" class="blueprint-img">
+                            
+                            <!-- Hotspot 1: Ridge Vent -->
+                            <div class="hotspot" style="top: 15%; left: 81%;">
+                                <div class="hotspot-pulse"></div>
+                                <div class="hotspot-label">
+                                    <h4>Ridge Ventilation</h4>
+                                    <p>Continuous airflow prevents attic heat buildup and deck rot.</p>
+                                </div>
+                            </div>
+
+                            <!-- Hotspot 2: Asphalt Shingles -->
+                            <div class="hotspot" style="top: 30%; left: 62%;">
+                                <div class="hotspot-pulse"></div>
+                                <div class="hotspot-label">
+                                    <h4>Asphalt Shingles</h4>
+                                    <p>IKO Dynasty architectural shingles with ArmourZone® for 210km/h wind protection.</p>
+                                </div>
+                            </div>
+
+                            <!-- Hotspot 3: Synthetic Underlayment -->
+                            <div class="hotspot" style="top: 39%; left: 49%;">
+                                <div class="hotspot-pulse"></div>
+                                <div class="hotspot-label">
+                                    <h4>High-Perf Underlayment</h4>
+                                    <p>Synthetic barrier that breathes while blocking 100% of moisture.</p>
+                                </div>
+                            </div>
+
+                            <!-- Hotspot 4: Plywood Sheathing -->
+                            <div class="hotspot" style="top: 45%; left: 39%;">
+                                <div class="hotspot-pulse"></div>
+                                <div class="hotspot-label">
+                                    <h4>Plywood Sheathing</h4>
+                                    <p>The structural foundation. We perform a 100% deck inspection on every project.</p>
+                                </div>
+                            </div>
+
+                            <!-- Hotspot 5: Precision Drip Edge -->
+                            <div class="hotspot" style="top: 61%; left: 19%;">
+                                <div class="hotspot-pulse"></div>
+                                <div class="hotspot-label">
+                                    <h4>Precision Drip Edge</h4>
+                                    <p>Architectural flashing that directs water safely into the eavestroughs.</p>
+                                </div>
+                            </div>
+
+                            <!-- Hotspot 6: Ice & Water Shield -->
+                            <div class="hotspot" style="top: 34.5%; left: 55.5%;">
+                                <div class="hotspot-pulse"></div>
+                                <div class="hotspot-label">
+                                    <h4>Ice & Water Shield</h4>
+                                    <p>Critical rubberized membrane protection for all valleys and eaves.</p>
+                                </div>
+                            </div>
+
+                            <!-- Hotspot 7: Soffit Ventilation -->
+                            <div class="hotspot" style="top: 68%; left: 28%;">
+                                <div class="hotspot-pulse"></div>
+                                <div class="hotspot-label">
+                                    <h4>Soffit Intake Vent</h4>
+                                    <p>Ensures fresh air intake to balance attic temperatures and prevent ice dams.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        </section>
+
+
+        <!-- About Us Section -->
+        <section id="about" class="section-padding">
+            <div class="container about-grid">
+                <div class="about-content reveal-group">
+                    <h2 class="section-title reveal" style="text-align: left; margin-left: 0;">20+ Years of Engineering Excellence</h2>
+                    <p class="section-subtitle reveal" style="text-align: left; margin-left: 0;">Your Trusted Roofing & Exteriors Experts</p>
+                    <p class="mb-md reveal" style="font-size: 1.1rem; line-height: 1.7;">Your home deserves the best care, and we deliver it by specializing in roofing, siding, soffit, fascia, eavestroughs, and gutter guards.</p>
+                    <p class="mb-md reveal">We bring in-depth knowledge and hands-on experience to **water flow systems** (from your roof to your eavestroughs and siding) and **ventilation systems** (from your roof and vents to insulation and soffits).</p>
+                    <p class="mb-md reveal">Unlike many profit-driven companies that cut corners, we build on a foundation of trust and quality. We take pride in our professionalism and would be more than happy to walk you through why our work will outlast our competitors.</p>
+                    <div class="about-cta reveal" style="margin-top: 2rem;">
+                        <a href="contact.html" class="btn btn-primary">Free Inspection & Quote</a>
+                    </div>
+                </div>
+                <div class="about-visual reveal" style="transition-delay: 0.2s;">
+                    <div class="logo-showcase-card">
+                        <img src="assets/logo.png" alt="Trident Roofing Logo" class="about-logo">
+                        <div class="exp-badge-premium">
+                            <span class="exp-num"><span id="exp-counter" data-target="20">0</span>+</span>
+                            <span class="exp-text">YEARS</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Service Grid -->
+        <section id="services" class="section-padding parallax-bg">
+            <div class="container">
+                <h2 class="section-title reveal">Precision Services</h2>
+                <p class="section-subtitle reveal">Complete exterior protection — every system engineered for Ontario.</p>
+                <div class="services-grid reveal-group">
+                    <div class="service-card-premium reveal" data-service="roofing">
+                        <div class="image-box">
+                            <img src="assets/service_roofing_new.png" alt="Residential Roofing">
+                        </div>
+                        <div class="content-box">
+                            <h3>Roofing Systems</h3>
+                            <p>Architectural shingles and no-heat flat roofing membranes. Full tear-off, underlayment, and precision installation.</p>
+                            <button class="nav-link service-modal-trigger" data-service="roofing">Explore System <i class="fas fa-arrow-right"></i></button>
+                        </div>
+                    </div>
+                    <div class="service-card-premium reveal" data-service="siding">
+                        <div class="image-box">
+                            <img src="assets/service_siding_new.png" alt="Siding Installation">
+                        </div>
+                        <div class="content-box">
+                            <h3>Siding</h3>
+                            <p>Westlake Royal certified siding systems for superior curb appeal, thermal insulation, and moisture management.</p>
+                            <button class="nav-link service-modal-trigger" data-service="siding">Explore System <i class="fas fa-arrow-right"></i></button>
+                        </div>
+                    </div>
+                    <div class="service-card-premium reveal" data-service="eavestroughs">
+                        <div class="image-box">
+                            <img src="assets/service_eavestrough_new.png" alt="Eavestrough Installation">
+                        </div>
+                        <div class="content-box">
+                            <h3>Eavestroughs</h3>
+                            <p>Seamless aluminum eavestroughs custom-formed on-site. Proper slope, secure hangers, and clean downspout routing.</p>
+                            <button class="nav-link service-modal-trigger" data-service="eavestroughs">Explore System <i class="fas fa-arrow-right"></i></button>
+                        </div>
+                    </div>
+                    <div class="service-card-premium reveal" data-service="gutter-guards">
+                        <div class="image-box">
+                            <img src="assets/service_gutter_guard_new.png" alt="Gutter Guard Installation">
+                        </div>
+                        <div class="content-box">
+                            <h3>Gutter Guards</h3>
+                            <p>Alu-Rex leaf protection systems that eliminate clogs and protect your foundation from water damage year-round.</p>
+                            <button class="nav-link service-modal-trigger" data-service="gutter-guards">Explore System <i class="fas fa-arrow-right"></i></button>
+                        </div>
+                    </div>
+                    <!-- Storm & Leak Response — spans full width -->
+                    <div class="service-card-premium service-card-emergency reveal" style="transition-delay: 0.4s;">
+                        <div class="emergency-banner">
+                            <div class="emergency-icon">
+                                <i class="fas fa-bolt"></i>
+                            </div>
+                            <div class="emergency-content">
+                                <h3>Storm & Leak Response — 24/7</h3>
+                                <p>Active leak or storm damage? Our emergency team responds fast to protect your home from further damage. Call anytime, day or night.</p>
+                            </div>
+                            <a href="tel:2266800996" class="btn btn-primary"><i class="fas fa-phone-alt"></i> (226) 680-0996</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Service Detail Modal -->
+        <div class="service-modal-overlay" id="service-modal">
+            <div class="service-modal">
+                <button class="modal-close" id="modal-close"><i class="fas fa-times"></i></button>
+                <div class="modal-body" id="modal-body"></div>
+            </div>
+        </div>
+
+        <!-- Portfolio Slider -->
+        <section id="projects" class="section-padding parallax-bg" style="background: var(--secondary-bg); padding: 80px 0;">
+            <div class="container">
+                <h2 class="section-title reveal">Craftsmanship in Action</h2>
+                <p class="section-subtitle reveal">Real jobs, real results. Drag the partition to see the Trident transformation.</p>
+                
+                <div class="portfolio-grid reveal">
+                    <div class="portfolio-info">
+                        <h3>Total Exterior Overhaul</h3>
+                        <p class="text-accent mb-sm">London, Ontario | Full Enclosure System</p>
+                        <p class="mb-md">This project involved a complete technical restoration of a 25-year-old residence. We performed a full tear-off down to the deck, installed a premium architectural shingle system with a high-performance ice & water shield, and replaced failing vinyl with Westlake Royal insulated siding.</p>
+                        <ul class="feature-list mb-md">
+                            <li><i class="fas fa-check-circle"></i> Full Deck Inspection & Repair</li>
+                            <li><i class="fas fa-check-circle"></i> GAF HDZ Shingle System</li>
+                            <li><i class="fas fa-check-circle"></i> Westlake Royal Siding Upgrade</li>
+                            <li><i class="fas fa-check-circle"></i> Seamless Gutter Engineering</li>
+                        </ul>
+                        <a href="contact.html" class="btn btn-primary pc-only">Book Similar Project</a>
+                    </div>
+                    
+                    <div class="portfolio-visual">
+                        <div class="mobile-only text-center mb-md">
+                            <button class="btn btn-secondary btn-sm" id="portfolio-more-btn">Learn More <i class="fas fa-info-circle"></i></button>
+                        </div>
+                        <div class="slider-outer">
+                            <div class="slider-container" id="project-slider">
+                                <img src="assets/roof_before.png" alt="Before" class="img-before">
+                                <img src="assets/roof_after.png" alt="After" class="img-after">
+                                <div class="slider-handle"></div>
+                            </div>
+
+                            <div class="portfolio-pins">
+                                <!-- Hotspot 1: Roofing (Main Roof Center) -->
+                                <div class="p-pin" style="top: 30%; left: 55%;" data-x="55">
+                                    <div class="p-pulse"></div>
+                                    <div class="p-label">
+                                        <div class="content-risk">
+                                            <h4>Systemic Failure</h4>
+                                            <p>Brittle shingles and missing tabs allowing water to penetrate the deck.</p>
+                                        </div>
+                                        <div class="content-success">
+                                            <h4>High-Performance Armor</h4>
+                                            <p>IKO Dynasty shingles with a 210km/h wind rating and leak protection.</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Hotspot 2: Siding (Above Window Center) -->
+                                <div class="p-pin" style="top: 42%; left: 27.5%;" data-x="27.5">
+                                    <div class="p-pulse"></div>
+                                    <div class="p-label">
+                                        <div class="content-risk">
+                                            <h4>Hidden Wall Rot</h4>
+                                            <p>Moisture trapped behind old siding slowly destroying the home's framing.</p>
+                                        </div>
+                                        <div class="content-success">
+                                            <h4>Insulated Barrier</h4>
+                                            <p>Premium Westlake Royal siding with integrated thermal protection.</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Hotspot 3: Drainage (Right Eavestrough) -->
+                                <div class="p-pin" style="top: 50%; left: 70%;" data-x="70">
+                                    <div class="p-pulse"></div>
+                                    <div class="p-label">
+                                        <div class="content-risk">
+                                            <h4>Foundation Threat</h4>
+                                            <p>Sagging gutters dumping water at the base, causing basement leaks.</p>
+                                        </div>
+                                        <div class="content-success">
+                                            <h4>Precision Flow</h4>
+                                            <p>Seamless custom-formed eavestroughs engineered for high-volume drainage.</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Hotspot 4: Ventilation (Front Peak Center) -->
+                                <div class="p-pin" style="top: 15%; left: 27.5%;" data-x="27.5">
+                                    <div class="p-pulse"></div>
+                                    <div class="p-label">
+                                        <div class="content-risk">
+                                            <h4>Heat & Ice Dams</h4>
+                                            <p>Poor soffit airflow causing attic heat buildup and winter ice dam damage.</p>
+                                        </div>
+                                        <div class="content-success">
+                                            <h4>Balanced Airflow</h4>
+                                            <p>Continuous soffit intake and ridge outtake for a healthy, breathable attic.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Portfolio Detail Modal (Mobile) -->
+        <div class="service-modal-overlay" id="portfolio-modal">
+            <div class="service-modal">
+                <button class="modal-close" id="portfolio-modal-close"><i class="fas fa-times"></i></button>
+                <div class="modal-body">
+                    <h2>Total Exterior Overhaul</h2>
+                    <p class="text-accent">London, Ontario | Full Enclosure System</p>
+                    <p>This project involved a complete technical restoration of a 25-year-old residence. We performed a full tear-off down to the deck, installed a premium architectural shingle system with a high-performance ice & water shield, and replaced failing vinyl with Westlake Royal insulated siding.</p>
+                    <ul class="feature-list">
+                        <li><i class="fas fa-check-circle"></i> Full Deck Inspection & Repair</li>
+                        <li><i class="fas fa-check-circle"></i> GAF HDZ Shingle System</li>
+                        <li><i class="fas fa-check-circle"></i> Westlake Royal Siding Upgrade</li>
+                        <li><i class="fas fa-check-circle"></i> Seamless Gutter Engineering</li>
+                    </ul>
+                    <a href="contact.html" class="btn btn-primary modal-cta">Book Similar Project</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Estimate Section -->
+        <section id="quote" class="section-padding">
+            <div class="container">
+                <div class="card-premium reveal" style="max-width: 800px; margin: 0 auto;">
+                    <h2 class="text-center mb-md">Instant Ballpark Estimate</h2>
+                    <div class="step-form" id="estimate-tool">
+                        <div class="step active" data-step="1">
+                            <h3>1. Select Your Roof Type</h3>
+                            <div class="grid-3" style="margin-top: 2rem;">
+                                <div class="card-premium option-card" data-value="asphalt">Asphalt</div>
+                                <div class="card-premium option-card" data-value="flat">Flat Roof</div>
+                                <div class="card-premium option-card" data-value="steel">Steel/Metal</div>
+                            </div>
+                        </div>
+                        <div class="step" data-step="2">
+                            <h3>2. Approximate Size (sq. ft)</h3>
+                            <input type="number" id="roof-size" class="form-control" style="margin-top: 2rem; background: var(--secondary-bg); border: 1px solid var(--glass-border); color: var(--text-main); padding: 1rem; width: 100%; border-radius: var(--radius-sm);" placeholder="e.g. 2000">
+                            <button class="btn btn-primary" id="calculate-btn" style="margin-top: 2rem;">Calculate Range</button>
+                        </div>
+                        <div class="step" data-step="3">
+                            <div class="result-box">
+                                <h4 id="estimate-result" style="font-size: 2rem; color: var(--accent-blue);">$<span id="min-val">0</span> - $<span id="max-val">0</span></h4>
+                                <p class="text-dim">Ballpark range based on premium systems. Book an audit for a final quote.</p>
+                            </div>
+                            <a href="contact.html" class="btn btn-primary mt-md">Request Site Inspection</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col logo-col">
+                    <img src="assets/logo.png" alt="Trident Logo" height="75" class="mb-md">
+                    <p class="text-dim">Advanced exterior systems engineered for performance and durability. Serving London, Kitchener-Waterloo, and Central Ontario.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Systems</h4>
+                    <ul class="footer-links">
+                        <li><a href="javascript:void(0)" class="service-modal-trigger" data-service="roofing">Roofing Systems</a></li>
+                        <li><a href="javascript:void(0)" class="service-modal-trigger" data-service="siding">Siding Systems</a></li>
+                        <li><a href="javascript:void(0)" class="service-modal-trigger" data-service="eavestroughs">Eavestroughs</a></li>
+                        <li><a href="javascript:void(0)" class="service-modal-trigger" data-service="gutter-guards">Gutter Protection</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Company</h4>
+                    <ul class="footer-links">
+                        <li><a href="#why-trident">The Trident Edge</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#projects">Portfolio</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Emergency</h4>
+                    <p class="text-dim mb-md">Active leaks or storm damage? Our response team is available 24/7.</p>
+                    <a href="tel:2266800996" class="btn btn-secondary"><i class="fas fa-phone-alt"></i> (226) 680-0996</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Trident Roofing & Exteriors. All rights reserved.</p>
+                <p>Designed for Excellence.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Mobile Floating Action Hub (Option 1) -->
+    <div class="mobile-hub">
+        <a href="contact.html" class="floating-cta">
+            <div class="pulse-dot"></div>
+            <span>Book Free Audit</span>
+        </a>
+    </div>
+
+    <!-- Mobile Floating Action Hub (Option 1) -->
+    <div class="mobile-hub">
+        <a href="contact.html" class="floating-cta">
+            <div class="pulse-dot"></div>
+            <span>Book Free Audit</span>
+        </a>
+    </div>
+
+    <script src="js/app.js?v=33"></script></script></script></script></script>
+</body>
+</html>
