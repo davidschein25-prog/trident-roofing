@@ -476,7 +476,7 @@ h1, h2, h3, h4 {
 
 @media (max-width: 768px) {
     .hero-trust {
-        transform: translateY(-30px); /* Final lift for optimal mobile spacing */
+        transform: translateY(-65px); /* Increased lift to clear the now-larger trust bar */
         gap: 1rem;
         flex-wrap: wrap;
     }
@@ -2216,11 +2216,11 @@ body.emergency-mode {
 
 @media (max-width: 768px) {
     .trust-item {
-        font-size: 0.8rem; /* Middle ground */
-        gap: 10px;
+        font-size: 1.2rem; /* Scaled up 50% from 0.8rem */
+        gap: 15px;
     }
     .trust-item i {
-        font-size: 1.35rem !important; /* Middle ground */
+        font-size: 2rem !important; /* Scaled up from 1.35rem */
     }
 }
 
@@ -2374,8 +2374,17 @@ body.emergency-mode {
     background: linear-gradient(to top, rgba(10, 10, 12, 0.95), transparent);
     border-bottom: none;
     border-top: none;
-    padding: 12px 0; /* Middle ground */
+    padding: 12px 0; /* Middle ground for desktop scaling */
     z-index: 100;
+}
+
+@media (max-width: 768px) {
+    .pc-hero-overlay {
+        padding: 20px 0; /* Scaled up from 12px */
+    }
+    .btn i.fa-chevron-right {
+        display: none; /* Remove arrow to declutter mobile text */
+    }
 }
 
 @media (min-width: 993px) {
