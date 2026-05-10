@@ -297,7 +297,8 @@ h1, h2, h3, h4 {
 
 @media (max-width: 768px) {
     .hero-frame {
-        object-position: center 25% !important; /* Lift images higher on tall screens */
+        object-fit: cover !important; /* Fill the tall screen */
+        object-position: center 30% !important; /* Focus on the roofline */
     }
 }
 
@@ -368,6 +369,15 @@ h1, h2, h3, h4 {
     max-width: 1400px;
     width: 100%;
     padding: 0 4rem;
+}
+
+@media (max-width: 768px) {
+    .hero-overlay {
+        justify-content: flex-start; /* Force content to top */
+        padding-top: 140px; /* Header (90px) + breathing room */
+        padding-left: 2rem;
+        padding-right: 2rem;
+    }
 }
 
 .hero-phases-area {
