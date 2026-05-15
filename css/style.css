@@ -490,6 +490,10 @@ h1, h2, h3, h4 {
     flex-wrap: wrap;
 }
 
+.hero-ctas .btn {
+    font-size: calc(0.85rem * 0.75); /* Reduced by 25% to increase breathing room */
+}
+
 .hero-trust {
     display: flex;
     gap: 2rem;
@@ -786,53 +790,45 @@ h1, h2, h3, h4 {
 }
 
 /* Hotspots */
+/* Blueprint Hotspots - Micro-Dots (10px) */
 .hotspot {
     position: absolute;
-    width: 32px;
-    height: 32px;
-    z-index: 20; /* Above everything */
+    width: 100%;
+    max-width: 10px; 
+    height: 10px;
+    background: var(--accent-cyan);
+    border-radius: 50%;
+    z-index: 50;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 0 8px rgba(var(--accent-cyan-rgb), 0.6);
+    border: 1px solid white;
+    transform: translate(-50%, -50%);
     cursor: pointer;
+}
+
+.hotspot:hover {
+    transform: translate(-50%, -50%) scale(2.5);
+    background: var(--accent-red);
+    box-shadow: 0 0 15px rgba(220, 38, 38, 0.8);
 }
 
 .hotspot-pulse {
     position: absolute;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 242, 255, 0.3); /* Transparent Cyber-Blue */
-    border-radius: 50%;
-    animation: h-radar 3s ease-out infinite;
-}
-
-.hotspot::after {
-    content: attr(data-number);
-    position: absolute;
-    width: 22px;
-    height: 22px;
-    background: white;
-    border-radius: 50%;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    box-shadow: 0 0 15px rgba(255, 255, 255, 0.9);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 13px;
-    font-weight: 800;
-    color: var(--primary-bg);
-    transition: all 0.3s ease;
+    width: 40px; 
+    height: 40px;
+    border: 1.5px solid var(--accent-cyan);
+    border-radius: 50%;
+    animation: h-pulse 2s infinite;
+    pointer-events: none;
+    display: block !important;
 }
 
-.hotspot:hover::after {
-    background: var(--accent-cyan);
-    color: white;
-    transform: translate(-50%, -50%) scale(1.1);
-}
-
-@keyframes h-radar {
-    0% { transform: scale(1); opacity: 0.5; }
-    50% { opacity: 0.2; }
-    100% { transform: scale(3.5); opacity: 0; }
+@keyframes h-pulse {
+    0% { transform: translate(-50%, -50%) scale(0.2); opacity: 1; }
+    100% { transform: translate(-50%, -50%) scale(1.2); opacity: 0; }
 }
 
 /* Technical Deep Dive Styles for Hotspot Modals */
@@ -841,17 +837,19 @@ h1, h2, h3, h4 {
 }
 
 .technical-deep-dive p {
-    margin-bottom: 1.25rem !important;
+    margin-bottom: 0.6rem !important;
+    font-size: 0.95rem;
+    line-height: 1.5;
 }
 
 .tech-list {
     list-style: none !important;
     padding: 0 !important;
-    margin-bottom: 1.5rem !important;
+    margin-bottom: 1rem !important;
 }
 
 .tech-list li {
-    padding: 0.5rem 0 !important;
+    padding: 0.3rem 0 !important;
     border-bottom: 1px solid rgba(26, 45, 58, 0.05);
     font-size: 0.9rem !important;
     color: var(--text-dim) !important;
@@ -865,37 +863,34 @@ h1, h2, h3, h4 {
     font-style: italic;
     color: var(--accent-cyan) !important;
     font-weight: 600;
-    border-top: 2px solid rgba(0, 242, 255, 0.1);
-    padding-top: 1rem;
-    margin-top: 1.5rem;
+    border-top: 1.5px solid rgba(0, 242, 255, 0.1);
+    padding-top: 0.5rem;
+    margin-top: 0.75rem;
+    font-size: 0.9rem;
 }
 
-.hotspot-label {
-    position: absolute;
-    bottom: 45px;
-    left: 50%;
-    transform: translateX(-50%) translateY(10px);
-    width: 260px;
-    background: white;
-    padding: 1.25rem;
-    border-radius: var(--radius-sm);
-    box-shadow: 0 20px 40px rgba(0,0,0,0.3);
-    opacity: 0;
-    visibility: hidden;
-    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-    pointer-events: none;
-    border-top: 4px solid var(--accent-cyan);
-    z-index: 100;
+/* Aggressive Wide Modal to Eliminate Scrolling */
+.service-modal {
+    background: var(--white);
+    border-radius: var(--radius-lg);
+    max-width: 880px; /* Further increased to spread text thin */
+    width: 95%;
+    max-height: 98vh; /* Use almost full height if needed */
+    overflow-y: auto;
+    padding: 1.5rem 2.5rem; /* Tightened padding */
+    position: relative;
+    box-shadow: 0 30px 70px rgba(26, 45, 58, 0.3);
+    transform: translateY(20px);
+    transition: transform 0.3s ease;
 }
 
-.hotspot:hover .hotspot-label {
-    opacity: 1;
-    visibility: visible;
-    transform: translateX(-50%) translateY(0);
+.service-modal h2 {
+    font-size: 1.6rem;
+    margin-bottom: 0.75rem;
+    color: var(--accent-blue);
 }
 
 .hotspot-label h4 {
-    color: #1A2D3A;
     font-size: 1.1rem;
     font-weight: 700;
     margin-bottom: 0.5rem;
@@ -933,8 +928,8 @@ h1, h2, h3, h4 {
     }
     
     .hotspot {
-        width: 20px;
-        height: 20px;
+        width: 10px;
+        height: 10px;
     }
     
     .hotspot-label {
@@ -1993,6 +1988,13 @@ body.emergency-mode {
     display: block;
 }
 
+.portfolio-visual {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
 .portfolio-grid {
     display: grid;
     grid-template-columns: 1fr 1.2fr;
@@ -2009,30 +2011,31 @@ body.emergency-mode {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 2rem;
-    margin-top: 3rem;
+    gap: 1.5rem;
+    margin-top: 1.5rem; /* Tightened padding as requested */
+    position: relative;
+    z-index: 100; /* Ensure it's above other elements */
 }
 
 .carousel-btn {
-    background: var(--white);
-    border: 1px solid var(--glass-border);
-    color: var(--accent-blue);
-    width: 50px;
-    height: 50px;
+    background: var(--accent-blue);
+    border: none;
+    color: var(--white);
+    width: 42px; /* Slightly smaller for precision */
+    height: 42px;
     border-radius: 50%;
     cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 4px 12px rgba(44, 74, 90, 0.2);
 }
 
 .carousel-btn:hover {
     background: var(--accent-cyan);
-    color: var(--white);
-    transform: scale(1.1);
-    box-shadow: 0 8px 15px rgba(var(--accent-cyan-rgb), 0.3);
+    transform: translateY(-2px) scale(1.05);
+    box-shadow: 0 8px 20px rgba(var(--accent-cyan-rgb), 0.3);
 }
 
 .carousel-dots {
@@ -2041,10 +2044,10 @@ body.emergency-mode {
 }
 
 .dot {
-    width: 10px;
-    height: 10px;
+    width: 8px;
+    height: 8px;
     border-radius: 50%;
-    background: rgba(44, 74, 90, 0.2);
+    background: rgba(44, 74, 90, 0.15);
     cursor: pointer;
     transition: all 0.3s ease;
 }
@@ -2748,6 +2751,52 @@ body.emergency-mode {
     margin-bottom: 0;
 }
 
+.reviews-marquee {
+    overflow: hidden;
+    width: 100%;
+    padding: 2rem 0;
+    position: relative;
+}
+
+.marquee-content {
+    display: flex;
+    gap: 2rem;
+    animation: reviews-scroll 40s linear infinite;
+    width: max-content;
+}
+
+.review-card-mini {
+    background: var(--white);
+    padding: 1.5rem;
+    border-radius: var(--radius-sm);
+    box-shadow: var(--shadow-heavy);
+    width: 320px;
+    flex-shrink: 0;
+    border: 1px solid var(--glass-border);
+}
+
+.review-card-mini .stars {
+    color: #FFD700;
+    margin-bottom: 0.5rem;
+}
+
+.review-card-mini p {
+    font-size: 0.9rem;
+    color: var(--text-dim);
+    margin-bottom: 1rem;
+    font-style: italic;
+}
+
+.review-card-mini h4 {
+    font-size: 0.95rem;
+    color: var(--text-main);
+}
+
+@keyframes reviews-scroll {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+}
+
 .reviews-marquee:hover .marquee-content,
 .reviews-marquee:active .marquee-content {
     animation-play-state: paused;
@@ -2762,7 +2811,7 @@ body.emergency-mode {
         font-size: 1.3rem !important;
     }
     .hero-ctas .btn-secondary {
-        font-size: 1.1rem !important;
+        font-size: calc(1.1rem * 0.75) !important; /* Reduced by 25% */
         padding: 1.2rem 2.5rem !important;
     }
 }
@@ -2792,7 +2841,7 @@ body.emergency-mode {
     }
     .hero-ctas .btn {
         padding: 0.4rem 1.8rem !important;
-        font-size: 0.85rem !important;
+        font-size: calc(0.85rem * 0.75) !important; /* Consistent 25% reduction */
     }
 }
 
