@@ -33,16 +33,17 @@ function initParallax() {
 document.addEventListener('DOMContentLoaded', () => {
     initHeroAnimation();
     initEmergencyMode();
-    initProjectSlider();
-    initEstimateTool();
+    initPortfolioCarousel();
     initRoofQuiz();
     initRevealAnimations();
     initServiceModals();
-    initPortfolioModal();
     initMobileNav();
     initParallax();
     initAboutCounter();
+    initTridentEdge();
+    initCustomDropdown();
     initMagneticButtons();
+    initBlueprintHotspots();
 });
 
 /**
@@ -168,84 +169,128 @@ function initEmergencyMode() {
 }
 
 /**
- * Before/After Project Slider (Premium Overlay Logic)
+ * Portfolio Carousel & Before/After Multi-Slider Logic
  */
-function initProjectSlider() {
-    const slider = document.getElementById('project-slider');
-    if (!slider) return;
+function initPortfolioCarousel() {
+    const carousel = document.querySelector('.portfolio-carousel');
+    if (!carousel) return;
 
-    const afterImg = slider.querySelector('.img-after');
-    const handle = slider.querySelector('.slider-handle');
-    // Pins are now in the slider-outer, not inside the slider-container itself
-    const pins = slider.parentElement.querySelectorAll('.p-pin');
-    let isDragging = false;
-    let animationFrameId = null;
+    const slides = carousel.querySelectorAll('.portfolio-slide');
+    const dots = carousel.querySelectorAll('.dot');
+    const prevBtn = document.getElementById('portfolio-prev');
+    const nextBtn = document.getElementById('portfolio-next');
+    let currentSlide = 0;
 
-
-    const updatePins = (percent) => {
-        pins.forEach(pin => {
-            const pinX = parseFloat(pin.getAttribute('data-x'));
-            // Pin is on the "After" side if its X position is less than the reveal percentage
-            if (pinX < percent) {
-                pin.classList.add('is-success');
-            } else {
-                pin.classList.remove('is-success');
-            }
+    const showSlide = (index) => {
+        slides.forEach((slide, i) => {
+            slide.classList.toggle('active', i === index);
+            dots[i].classList.toggle('active', i === index);
         });
+        currentSlide = index;
+        
+        // Re-calculate layout for the active slider when shown
+        const activeSlider = slides[index].querySelector('.slider-container');
+        if (activeSlider) {
+            // Trigger a resize-like event or just ensure pins/handle are reset if needed
+        }
     };
 
-    const moveSlider = (clientX) => {
-        const rect = slider.getBoundingClientRect();
-        let x = clientX - rect.left - window.scrollX;
-        
-        if (x < 0) x = 0;
-        if (x > rect.width) x = rect.width;
-        
-        const percent = (x / rect.width) * 100;
-        
-        if (animationFrameId) cancelAnimationFrame(animationFrameId);
-        animationFrameId = requestAnimationFrame(() => {
-            // Uncover After from left to right: inset(0 [remaining-percent] 0 0)
-            afterImg.style.clipPath = `inset(0 ${100 - percent}% 0 0)`;
-            handle.style.left = `${percent}%`;
-            updatePins(percent);
+    if (nextBtn) {
+        nextBtn.addEventListener('click', () => {
+            let next = currentSlide + 1;
+            if (next >= slides.length) next = 0;
+            showSlide(next);
         });
-    };
+    }
 
-    // Event Listeners
-    slider.addEventListener('mousedown', (e) => {
-        e.preventDefault();
-        isDragging = true;
-        moveSlider(e.pageX);
+    if (prevBtn) {
+        prevBtn.addEventListener('click', () => {
+            let prev = currentSlide - 1;
+            if (prev < 0) prev = slides.length - 1;
+            showSlide(prev);
+        });
+    }
+
+    dots.forEach((dot, index) => {
+        dot.addEventListener('click', () => showSlide(index));
     });
 
-    window.addEventListener('mouseup', () => {
-        isDragging = false;
+    // Initialize all before/after sliders
+    const sliders = document.querySelectorAll('.slider-container');
+    sliders.forEach(slider => {
+        const afterImg = slider.querySelector('.img-after');
+        const handle = slider.querySelector('.slider-handle');
+        const slideWrapper = slider.closest('.portfolio-slide');
+        const pins = slideWrapper.querySelectorAll('.p-pin');
+        let isDragging = false;
+        let animationFrameId = null;
+
+        const updatePins = (percent) => {
+            pins.forEach(pin => {
+                const pinX = parseFloat(pin.getAttribute('data-x'));
+                if (pinX < percent) {
+                    pin.classList.add('is-success');
+                } else {
+                    pin.classList.remove('is-success');
+                }
+            });
+        };
+
+        const moveSlider = (clientX) => {
+            const rect = slider.getBoundingClientRect();
+            let x = clientX - rect.left - window.scrollX;
+            if (x < 0) x = 0;
+            if (x > rect.width) x = rect.width;
+            const percent = (x / rect.width) * 100;
+            if (animationFrameId) cancelAnimationFrame(animationFrameId);
+            animationFrameId = requestAnimationFrame(() => {
+                afterImg.style.clipPath = `inset(0 ${100 - percent}% 0 0)`;
+                handle.style.left = `${percent}%`;
+                updatePins(percent);
+            });
+        };
+
+        slider.addEventListener('mousedown', (e) => { e.preventDefault(); isDragging = true; });
+        window.addEventListener('mouseup', () => { isDragging = false; });
+        window.addEventListener('mousemove', (e) => { if (isDragging) moveSlider(e.clientX); });
+        
+        slider.addEventListener('touchstart', (e) => { isDragging = true; }, { passive: true });
+        window.addEventListener('touchend', () => { isDragging = false; });
+        window.addEventListener('touchmove', (e) => { if (isDragging) moveSlider(e.touches[0].clientX); }, { passive: true });
+
+        // Initial state: 50%
+        afterImg.style.clipPath = `inset(0 50% 0 0)`;
+        handle.style.left = `50%`;
+        updatePins(50);
     });
 
-    window.addEventListener('mousemove', (e) => {
-        if (!isDragging) return;
-        moveSlider(e.pageX);
-    });
+    // Mobile "Learn More" logic for all slides
+    const moreBtns = document.querySelectorAll('.portfolio-more-btn');
+    const modal = document.getElementById('portfolio-modal');
+    const modalClose = document.getElementById('portfolio-modal-close');
+    const modalBody = modal?.querySelector('.modal-body');
 
-    // Touch Support
-    slider.addEventListener('touchstart', (e) => {
-        isDragging = true;
-        moveSlider(e.touches[0].pageX);
-    }, { passive: false });
+    if (moreBtns && modal) {
+        moreBtns.forEach((btn, index) => {
+            btn.addEventListener('click', () => {
+                const slide = slides[index];
+                const title = slide.querySelector('h3').innerText;
+                const subtitle = slide.querySelector('.text-accent').innerText;
+                const desc = slide.querySelector('.mb-md').innerText;
+                const features = slide.querySelector('.feature-list').innerHTML;
 
-    window.addEventListener('touchend', () => {
-        isDragging = false;
-    });
+                if (modalBody) {
+                    modalBody.querySelector('h2').innerText = title;
+                    modalBody.querySelector('.text-accent').innerText = subtitle;
+                    modalBody.querySelector('p:not(.text-accent)').innerText = desc;
+                    modalBody.querySelector('.feature-list').innerHTML = features;
+                }
+                modal.classList.add('active');
+            });
+        });
 
-    window.addEventListener('touchmove', (e) => {
-        if (!isDragging) return;
-        e.preventDefault();
-        moveSlider(e.touches[0].pageX);
-    }, { passive: false });
-    
-    // Init pins at default 50%
-    updatePins(50);
+        modalClose.addEventListener('click', () => modal.classList.remove('active'));
+    }
 }
 
 /**
@@ -398,28 +443,54 @@ function initServiceModals() {
         'eavestroughs': {
             title: 'Seamless Water Management',
             subtitle: 'Foundation Protection',
-            description: 'Our seamless aluminum eavestroughs are custom-formed on-site to provide a perfect fit and eliminate leak-prone joints.',
+            description: 'Our seamless aluminum eavestroughs combined with Alu-Rex leaf protection systems provide a perfect fit and eliminate leak-prone joints and clogs.',
             features: [
                 'Heavy-Duty Aluminum: Resists denting and sagging.',
-                'Precision Pitching: Ensures total drainage.',
-                'Secure Hangers: Spaced for maximum snow load support.',
+                'Alu-Rex Guards: Keeps leaves, needles, and debris out.',
+                'Structural Reinforcement: Protects gutters from snow/ice weight.',
                 'Custom Mitres: Hand-cut corners for a leak-proof finish.',
                 'Optimized Downspouts: Channelling water away from foundation.'
             ],
             cta: 'Schedule an Eavestrough Consultation'
         },
-        'gutter-guards': {
-            title: 'Alu-Rex Gutter Protection',
-            subtitle: 'Never Clean Gutters Again',
-            description: 'We install the industry-leading Alu-Rex system, which adds structural strength to your gutters while preventing debris accumulation.',
+        'skylights': {
+            title: 'Skylights & Sun Tunnels',
+            subtitle: 'Natural Light, Zero Leaks',
+            description: 'Professional installation of Velux skylights and sun tunnels. We ensure a perfect, leak-free integration with your roofing system.',
             features: [
-                'No Clogs: Keeps leaves, needles, and debris out.',
-                'Structural Reinforcement: Protects gutters from snow/ice weight.',
-                'Optimal Flow: Handles heavy rainfall without overflowing.',
-                'Pest Prevention: Seals out birds and rodents.',
-                'Lifetime Performance: Built to last the life of the home.'
+                'Velux Certified: Installed to exact manufacturer specs.',
+                'Energy Efficient: Premium glass coatings reduce heat transfer.',
+                'Leak-Free Guarantee: Advanced flashing systems ensure watertight seals.',
+                'Natural Light: Drastically transform dark spaces.',
+                'Ventilation Options: Available in manual or solar-powered venting models.'
             ],
-            cta: 'Schedule a Gutter Guard Consultation'
+            cta: 'Schedule a Skylight Consultation'
+        },
+        'specialty': {
+            title: 'Custom Exterior Solutions',
+            subtitle: 'Comprehensive Protection',
+            description: 'Beyond standard systems, we offer specialized upgrades to perfect your home\'s exterior performance and aesthetic.',
+            features: [
+                'Blown-In Insulation: Maximize attic thermal efficiency.',
+                'Custom Metal Capping: Protect wood fascia and trim with precision metal.',
+                'Technical Flashing: Custom bent lead and aluminum for complex roof transitions.',
+                'Heating Cables: Prevent ice dams in problem areas.',
+                'Seasonal Accents: Professional holiday lighting installation.'
+            ],
+            cta: 'Schedule a Custom Solutions Consultation'
+        },
+        'emergency': {
+            title: 'Storm Response & Insurance',
+            subtitle: '24/7 Protection & Claim Assistance',
+            description: 'Active leak or storm damage? We provide 24/7 emergency mitigation and full insurance claim assistance to ensure you are fully covered and stress-free.',
+            features: [
+                '24/7 Dispatch: Rapid response to prevent interior damage.',
+                'Temporary Tarping: Secure your roof immediately.',
+                'Comprehensive Inspection: Full documentation of storm damage.',
+                'Claim Assistance: We work directly with your adjuster.',
+                'Restoration: Full system replacement approved by insurance.'
+            ],
+            cta: 'Get Immediate Assistance'
         }
     };
 
@@ -437,7 +508,7 @@ function initServiceModals() {
                 <ul>
                     ${data.features.map(f => `<li><i class="fas fa-check-circle"></i> ${f}</li>`).join('')}
                 </ul>
-                <a href="#quote" class="btn btn-primary modal-cta" id="modal-cta-btn">${data.cta}</a>
+                <a href="contact.html" class="btn btn-primary modal-cta" id="modal-cta-btn">${data.cta}</a>
             `;
 
             modal.classList.add('active');
@@ -613,3 +684,149 @@ function initMagneticButtons() {
 }
 
 
+
+/**
+ * Trident Edge Click Details
+ */
+function initTridentEdge() {
+    const items = document.querySelectorAll('.clickable-edge');
+    const modal = document.getElementById('service-modal');
+    const modalBody = document.getElementById('modal-body');
+    
+    items.forEach(item => {
+        item.addEventListener('click', () => {
+            const detail = item.getAttribute('data-detail');
+            const title = item.querySelector('span').innerText;
+            if(detail && modalBody && modal) {
+                modalBody.innerHTML = `
+                    <div class="modal-subtitle" style="color: var(--accent-orange); font-weight: 600; margin-bottom: 0.5rem;">The Trident Edge</div>
+                    <h2 style="margin-bottom: 1rem;">${title}</h2>
+                    <p style="margin-bottom: 2rem;">${detail}</p>
+                    <button class="btn btn-primary modal-cta" onclick="document.getElementById('service-modal').classList.remove('active'); document.body.style.overflow = '';">Got it <i class="fas fa-check"></i></button>
+                `;
+                modal.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            }
+        });
+    });
+}
+
+/**
+ * Contact Form Submission Handler
+ */
+document.addEventListener('DOMContentLoaded', () => {
+    const form = document.getElementById('consultation-form');
+    if (!form) return;
+
+    form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        
+        const btn = form.querySelector('button[type="submit"]');
+        const originalText = btn.innerHTML;
+        btn.innerHTML = 'Sending... <i class="fas fa-spinner fa-spin" style="margin-left: 10px;"></i>';
+        btn.disabled = true;
+
+        const formData = new FormData(form);
+        const data = Object.fromEntries(formData.entries());
+        
+        // Handle multiple select
+        const checkboxes = form.querySelectorAll('.custom-dropdown-content input[type="checkbox"]:checked');
+        if (checkboxes.length > 0) {
+            data.services = Array.from(checkboxes).map(cb => cb.value);
+        }
+        
+        // Handle checkbox
+        const checkbox = form.querySelector('input[name="insurance_claim"]');
+        if (checkbox) {
+            data.insurance_claim = checkbox.checked ? 'yes' : 'no';
+        }
+
+        try {
+            const res = await fetch('/api/submit', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(data)
+            });
+            
+            const result = await res.json();
+            
+            if (res.ok) {
+                btn.innerHTML = 'Sent Successfully! <i class="fas fa-check" style="margin-left: 10px;"></i>';
+                btn.style.background = '#10b981'; // green
+                form.reset();
+            } else {
+                throw new Error(result.error || 'Failed to send');
+            }
+        } catch (error) {
+            console.error('Error submitting form:', error);
+            btn.innerHTML = 'Error. Try Again. <i class="fas fa-times" style="margin-left: 10px;"></i>';
+            btn.style.background = '#ef4444'; // red
+        }
+        
+        // Reset button after 3 seconds
+        setTimeout(() => {
+            btn.innerHTML = originalText;
+            btn.disabled = false;
+            btn.style.background = '';
+        }, 3000);
+    });
+});
+
+/**
+ * Custom Dropdown Logic
+ */
+function initCustomDropdown() {
+    const header = document.getElementById('custom-dropdown-header');
+    const content = document.getElementById('custom-dropdown-content');
+    const confirmBtn = document.getElementById('dropdown-confirm-btn');
+    const checkboxes = document.querySelectorAll('.custom-dropdown-content input[type="checkbox"]');
+    
+    if (!header || !content || !confirmBtn) return;
+    
+    header.addEventListener('click', () => {
+        content.classList.toggle('open');
+    });
+    
+    const updateHeader = () => {
+        const checked = Array.from(checkboxes).filter(cb => cb.checked).map(cb => cb.parentElement.innerText.trim());
+        if (checked.length === 0) {
+            header.innerHTML = 'Select Interested System(s) <i class="fas fa-chevron-down"></i>';
+        } else if (checked.length === 1) {
+            header.innerHTML = checked[0] + ' <i class="fas fa-chevron-down"></i>';
+        } else {
+            header.innerHTML = checked.length + ' Systems Selected <i class="fas fa-chevron-down"></i>';
+        }
+    };
+    
+    checkboxes.forEach(cb => {
+        cb.addEventListener('change', updateHeader);
+    });
+    
+    confirmBtn.addEventListener('click', () => {
+        content.classList.remove('open');
+    });
+}
+
+
+function initBlueprintHotspots() {
+    const items = document.querySelectorAll('.clickable-hotspot');
+    const modal = document.getElementById('service-modal');
+    const modalBody = document.getElementById('modal-body');
+    
+    items.forEach(item => {
+        item.addEventListener('click', () => {
+            const detail = item.getAttribute('data-detail');
+            const title = item.getAttribute('data-title');
+            if(detail && modalBody && modal) {
+                modalBody.innerHTML = `
+                    <div class="modal-subtitle" style="color: var(--accent-orange); font-weight: 600; margin-bottom: 0.5rem;">Trident Engineering Standard</div>
+                    <h2 style="margin-bottom: 1rem;">${title}</h2>
+                    <p style="margin-bottom: 2rem;">${detail}</p>
+                    <button class="btn btn-primary modal-cta" onclick="document.getElementById('service-modal').classList.remove('active'); document.body.style.overflow = '';">Got it <i class="fas fa-check"></i></button>
+                `;
+                modal.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            }
+        });
+    });
+}
