@@ -2273,7 +2273,7 @@ body.emergency-mode {
     .hero-phase .phase-tag { font-size: 0.7rem; padding: 0.25rem 0.6rem; }
     .hero-phase { left: 1.5rem; max-width: 92%; }
     .hero-frame { object-position: center 30% !important; }
-    .hero-overlay { padding: 0 1.5rem; height: 100%; justify-content: flex-start; padding-top: 11vh; padding-bottom: 1vh; }
+    .hero-overlay { padding: 0 1.5rem; height: 100%; }
     .hero-static-content { flex-grow: 1; display: flex; flex-direction: column; }
     .hero-trust { position: absolute; bottom: 20px; left: 1.5rem; right: 1.5rem; flex-direction: column; gap: 0.5rem; width: auto; }
     .hero-ctas { flex-direction: column; gap: 0.8rem; margin-bottom: 1.25rem; }
@@ -2818,8 +2818,7 @@ body.emergency-mode {
 /* AGGRESSIVE MOBILE HERO FIX */
 @media (max-width: 768px) {
     .hero-overlay {
-        padding-top: 120px !important; /* Move even higher up */
-        justify-content: flex-start !important;
+        /* Overrides removed to allow primary centering to work */
     }
     .hero-phases-area {
         height: 250px !important; /* Extremely compact */
