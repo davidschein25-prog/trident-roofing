@@ -3087,3 +3087,8 @@ body.emergency-mode {
         left: auto !important;
     }
 }
+
+@keyframes mobile-bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(8px); }
+}
