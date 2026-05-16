@@ -374,8 +374,8 @@ h1, h2, h3, h4 {
 
 @media (max-width: 768px) {
     .hero-overlay {
-        justify-content: flex-start; /* Force content to top */
-        padding-top: 80px; /* Reduced from 140px to shift content up */
+        justify-content: center; /* Center content vertically for better tall-screen support */
+        padding-top: 2rem; /* Balanced padding */
         padding-left: 2rem;
         padding-right: 2rem;
     }
