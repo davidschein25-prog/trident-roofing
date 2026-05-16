@@ -84,7 +84,7 @@ function initHeroAnimation() {
         
         // Only hide scroll hint at the very end of the hero sequence
         if (scrollHint) {
-            scrollHint.classList.toggle('hidden', progress > 0.95);
+            scrollHint.classList.toggle('hidden', progress > 0.99);
         }
         
         // Only update DOM if phase changed
