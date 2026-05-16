@@ -262,13 +262,13 @@ h1, h2, h3, h4 {
 .hero-sticky {
     position: sticky;
     top: 0;
-    height: 100vh;
+    height: 100dvh; /* Use dynamic viewport height for mobile browser bars */
     width: 100%;
     overflow: hidden;
     display: flex;
     align-items: center;
     justify-content: center;
-    background: var(--hero-bg);  /* Dark background for cinematic hero */
+    background: var(--hero-bg);
 }
 
 /* Frame Images */
@@ -369,15 +369,14 @@ h1, h2, h3, h4 {
     z-index: 10;
     max-width: 1400px;
     width: 100%;
-    padding: 0 4rem;
+    padding: 90px 4rem 0; /* Add top padding to account for header height */
+    height: 100%;
 }
 
 @media (max-width: 768px) {
     .hero-overlay {
-        justify-content: center; /* Center content vertically for better tall-screen support */
-        padding-top: 2rem; /* Balanced padding */
-        padding-left: 2rem;
-        padding-right: 2rem;
+        justify-content: center; 
+        padding: 70px 2rem 0; /* Header is roughly 70-80px on mobile */
     }
     
     .hero-phase h1 {
