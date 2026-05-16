@@ -2835,20 +2835,42 @@ body.emergency-mode {
         display: flex !important;
         flex-direction: column !important;
         justify-content: center !important; /* Center the whole stack */
+        align-items: center !important; /* Ensure horizontal centering */
         padding: 90px 2rem 2rem !important; 
         height: 100% !important;
         gap: 1.5rem; /* Gap between major blocks */
+        text-align: center !important;
     }
     .hero-phases-area {
         height: auto !important;
         min-height: 180px;
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-end;
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: flex-end !important;
+        align-items: center !important;
+        width: 100% !important;
+    }
+    .hero-phase {
+        left: 0 !important;
+        right: 0 !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        text-align: center !important;
+    }
+    .hero-static-content {
+        width: 100% !important;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
     }
     .hero-trust {
         position: static !important;
-        margin-top: 1.5rem !important;
+        margin-top: 1rem !important;
+        width: 100% !important;
+        justify-content: center !important;
     }
     .scroll-hint {
         position: static !important;
