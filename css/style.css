@@ -371,6 +371,11 @@ h1, h2, h3, h4 {
     width: 100%;
     padding: 90px 4rem 0; /* Add top padding to account for header height */
     height: 100%;
+    gap: 3rem; /* Spacing between phases and CTAs */
+}
+
+.hero-ctas {
+    margin-top: 1rem; /* Additional spacing for the buttons */
 }
 
 @media (max-width: 768px) {
@@ -490,6 +495,7 @@ h1, h2, h3, h4 {
 }
 
 .hero-ctas .btn {
+    padding: 0.75rem 1.75rem; /* Added padding for PC */
     font-size: calc(0.85rem * 0.75); /* Reduced by 25% to increase breathing room */
 }
 
@@ -565,7 +571,7 @@ h1, h2, h3, h4 {
 /* Scroll Hint */
 .scroll-hint {
     position: absolute;
-    bottom: 3rem;
+    bottom: 6rem;
     left: 50% !important;
     transform: translateX(-50%) !important;
     z-index: 20;
