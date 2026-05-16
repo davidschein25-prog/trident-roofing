@@ -82,9 +82,9 @@ function initHeroAnimation() {
             progressBar.style.height = `${progress * 100}%`;
         }
         
-        // Only hide scroll hint at the very end of the hero sequence
+        // Never hide scroll hint as per user request for persistence
         if (scrollHint) {
-            scrollHint.classList.toggle('hidden', progress > 0.99);
+            scrollHint.classList.toggle('hidden', false);
         }
         
         // Only update DOM if phase changed

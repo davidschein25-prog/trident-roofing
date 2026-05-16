@@ -566,8 +566,8 @@ h1, h2, h3, h4 {
 .scroll-hint {
     position: absolute;
     bottom: 3rem;
-    left: 50%;
-    transform: translateX(-50%);
+    left: 50% !important;
+    transform: translateX(-50%) !important;
     z-index: 20;
     display: flex;
     flex-direction: column;
@@ -588,7 +588,7 @@ h1, h2, h3, h4 {
 
 @keyframes bounce {
     0%, 100% { transform: translateX(-50%) translateY(0); }
-    50% { transform: translateX(-50%) translateY(8px); }
+    50% { transform: translateX(-50%) translateY(15px); }
 }
 
 /* Responsive */
