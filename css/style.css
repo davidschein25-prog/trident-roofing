@@ -371,11 +371,14 @@ h1, h2, h3, h4 {
     width: 100%;
     padding: 90px 4rem 0; /* Add top padding to account for header height */
     height: 100%;
-    gap: 3rem; /* Spacing between phases and CTAs */
 }
 
 .hero-ctas {
-    margin-top: 1rem; /* Additional spacing for the buttons */
+    margin-top: 3.5rem; /* Gap from description */
+}
+
+.hero-trust {
+    margin-top: 1rem; /* Closer to buttons */
 }
 
 @media (max-width: 768px) {
@@ -572,8 +575,8 @@ h1, h2, h3, h4 {
 .scroll-hint {
     position: absolute;
     bottom: 6rem;
-    left: 50% !important;
-    transform: translateX(-50%) !important;
+    left: 50%;
+    transform: translateX(-50%);
     z-index: 20;
     display: flex;
     flex-direction: column;
@@ -3081,20 +3084,21 @@ body.emergency-mode {
         justify-content: center !important;
         align-items: center !important;
         width: 100% !important;
-        margin-top: 1.5rem !important;
+        margin-top: 1rem !important; /* Closer to buttons */
     }
     .scroll-hint {
         position: static !important;
         display: flex !important;
         flex-direction: column !important;
         align-items: center !important;
-        margin: 1.5rem auto !important;
-        transform: none !important;
+        margin: 0.8rem auto !important; /* Reduced padding */
+        animation: mobile-bounce 2s ease-in-out infinite !important;
+        /* Removed transform: none !important to allow bobbing */
         left: auto !important;
     }
 }
 
 @keyframes mobile-bounce {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(15px); }
+    0%, 100% { transform: translateY(0) !important; }
+    50% { transform: translateY(15px) !important; }
 }
