@@ -375,12 +375,12 @@ h1, h2, h3, h4 {
 
 .hero-ctas {
     margin-top: 3.5rem; /* Gap from description */
-    align-self: center; /* Center horizontally on PC */
+    margin-left: 3rem; /* Shift right 3rem */
 }
 
 .hero-trust {
-    margin-top: 0; /* Moved up 1rem from previous 1rem */
-    align-self: center; /* Center horizontally on PC */
+    margin-top: 0; /* Move up 1rem (from previous 1rem) */
+    margin-left: 1rem; /* Shift right 1rem */
 }
 
 @media (max-width: 768px) {
@@ -3086,21 +3086,20 @@ body.emergency-mode {
         justify-content: center !important;
         align-items: center !important;
         width: 100% !important;
-        margin-top: 1rem !important;
+        margin-top: 0.4rem !important; /* Reduced padding (40% reduction) */
     }
     .scroll-hint {
-        position: static !important;
+        position: relative !important; /* Changed from static to allow transform better */
         display: flex !important;
         flex-direction: column !important;
         align-items: center !important;
-        margin: 0.4rem auto !important; /* Reduced padding between trust and hint */
+        margin: 0.8rem auto 0.2rem !important; /* Reduced bottom padding */
         animation: mobile-bounce 2s ease-in-out infinite !important;
         left: auto !important;
-        transform: translate3d(0,0,0); /* Ensure clean starting state */
     }
 }
 
 @keyframes mobile-bounce {
-    0%, 100% { transform: translate3d(0, 0, 0); }
-    50% { transform: translate3d(0, 15px, 0); }
+    0%, 100% { transform: translateY(0) !important; }
+    50% { transform: translateY(15px) !important; }
 }
