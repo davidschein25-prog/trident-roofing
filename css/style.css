@@ -2274,7 +2274,7 @@ body.emergency-mode {
     .hero-phase { left: 1.5rem; max-width: 92%; }
     .hero-frame { object-position: center 30% !important; }
     .hero-overlay { padding: 0 1.5rem; height: 100%; }
-    .hero-static-content { display: flex; flex-direction: column; }
+    .hero-static-content { display: flex; flex-direction: column; position: static !important; }
     .hero-trust { 
         position: absolute !important; 
         bottom: 2rem !important; 
@@ -2868,8 +2868,17 @@ body.emergency-mode {
         font-size: 0.7rem !important;
         white-space: nowrap;
     }
-    .hero-ctas {
-        margin-top: 1rem !important;
+    .hero-trust {
+        position: absolute !important;
+        bottom: 1.5rem !important; /* Anchored to bottom of screen */
+        left: 0 !important;
+        right: 0 !important;
+        display: flex !important;
+        justify-content: center !important;
+        gap: 1rem !important;
+        width: 100% !important;
+        z-index: 100 !important;
+        padding-bottom: 5px;
     }
     .hero-ctas .btn {
         padding: 0.4rem 1.8rem !important;
