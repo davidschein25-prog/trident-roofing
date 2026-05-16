@@ -2834,12 +2834,12 @@ body.emergency-mode {
     .hero-overlay {
         display: flex !important;
         flex-direction: column !important;
-        justify-content: center !important; /* Center the whole stack */
-        align-items: center !important; /* Ensure horizontal centering */
+        justify-content: center !important; /* Center the whole stack vertically */
+        align-items: flex-start !important; /* Default to left alignment */
         padding: 90px 2rem 2rem !important; 
         height: 100% !important;
-        gap: 1.5rem; /* Gap between major blocks */
-        text-align: center !important;
+        gap: 1.2rem; /* Balanced gap */
+        text-align: left !important;
     }
     .hero-phases-area {
         height: auto !important;
@@ -2864,21 +2864,26 @@ body.emergency-mode {
         width: 100% !important;
         display: flex !important;
         flex-direction: column !important;
-        align-items: center !important;
+        align-items: center !important; /* Center the buttons and trust badges */
+        position: static !important;
     }
     .hero-trust {
         position: static !important;
         margin-top: 1rem !important;
         width: 100% !important;
+        display: flex !important;
         justify-content: center !important;
+        align-items: center !important;
     }
     .scroll-hint {
         position: static !important;
         transform: none !important;
-        margin: 1rem auto !important;
+        left: auto !important; /* Remove the 50% offset */
+        margin: 1.5rem auto !important; /* Center via auto margins */
         display: flex !important;
         flex-direction: column;
         align-items: center;
+        align-self: center !important; /* Explicitly center this block */
     }
     .hero-ctas {
         margin-top: 0.5rem !important;
