@@ -3253,8 +3253,8 @@ body.emergency-mode {
 }
 
 @keyframes mobile-bounce {
-    0%, 100% { transform: translateY(0) !important; }
-    50% { transform: translateY(15px) !important; }
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(12px); }
 }
 
 /* Small Mobile Sizing & Overflow Prevention */
