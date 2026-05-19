@@ -64,6 +64,42 @@ function initHeroAnimation() {
     
     let lastPhase = -1;
 
+    // Detect mobile view based on window width
+    const isMobile = window.innerWidth <= 768;
+
+    if (isMobile) {
+        let currentPhase = 1;
+        
+        function setMobilePhase(phaseNum) {
+            frames.forEach(f => {
+                const fNum = parseInt(f.dataset.frame);
+                f.classList.toggle('active', fNum === phaseNum);
+            });
+            phases.forEach(p => {
+                const pNum = parseInt(p.dataset.phase);
+                p.classList.toggle('active', pNum === phaseNum);
+            });
+            dots.forEach(d => {
+                const dNum = parseInt(d.dataset.dot);
+                d.classList.toggle('active', dNum === phaseNum);
+            });
+        }
+
+        // Setup first slide immediately
+        setMobilePhase(currentPhase);
+
+        // Auto-advance loop on mobile (every 3.5 seconds)
+        setInterval(() => {
+            currentPhase = (currentPhase % totalPhases) + 1;
+            setMobilePhase(currentPhase);
+        }, 3500);
+
+        if (scrollHint) {
+            scrollHint.classList.toggle('hidden', false);
+        }
+        return; // Complete exit. Do not attach scroll loop on mobile.
+    }
+
     function updateHero() {
         const rect = runway.getBoundingClientRect();
         const runwayHeight = runway.offsetHeight;

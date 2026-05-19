@@ -3092,6 +3092,32 @@ body.emergency-mode {
 
 /* DEFINITIVE MOBILE HERO OVERRIDES */
 @media (max-width: 768px) {
+    .hero-runway {
+        height: 100vh !important;
+        height: 100svh !important; /* Lock height on mobile to standard short viewport */
+        position: relative !important;
+        overflow: hidden !important;
+    }
+    .hero-sticky {
+        position: relative !important; /* Remove sticky context on mobile */
+        height: 100vh !important;
+        height: 100svh !important;
+        top: auto !important;
+        width: 100% !important;
+    }
+    .hero-progress {
+        display: none !important; /* Hide progress bar on mobile */
+    }
+    .hero-phase-dots {
+        position: absolute !important;
+        bottom: 8.5rem !important;
+        left: 50% !important;
+        right: auto !important;
+        transform: translateX(-50%) !important;
+        flex-direction: row !important;
+        gap: 8px !important;
+        z-index: 30 !important;
+    }
     .hero-overlay {
         display: flex !important;
         flex-direction: column !important;
