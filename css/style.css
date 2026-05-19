@@ -1958,6 +1958,55 @@ body.emergency-mode {
     overflow: hidden;
     border: 1px solid var(--glass-border);
     box-shadow: 0 10px 30px rgba(26, 45, 58, 0.05);
+    position: relative; /* Support absolute overlay ring */
+}
+
+.map-range-ring {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 260px;
+    height: 260px;
+    border: 3px dashed var(--accent-cyan);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 10;
+    box-shadow: 0 0 25px rgba(0, 242, 254, 0.15), inset 0 0 25px rgba(0, 242, 254, 0.15);
+    background: rgba(0, 242, 254, 0.04);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.map-range-ring .range-label {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--primary-bg);
+    color: var(--accent-cyan);
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    border: 1px solid var(--accent-cyan);
+    box-shadow: var(--shadow-premium);
+    white-space: nowrap;
+}
+
+@media (max-width: 480px) {
+    .map-range-ring {
+        width: 180px !important;
+        height: 180px !important;
+    }
+    .map-range-ring .range-label {
+        bottom: 10px !important;
+        font-size: 0.6rem !important;
+        padding: 3px 8px !important;
+    }
 }
 
 .map-container iframe {
