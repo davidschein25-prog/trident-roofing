@@ -3103,3 +3103,31 @@ body.emergency-mode {
     0%, 100% { transform: translateY(0) !important; }
     50% { transform: translateY(15px) !important; }
 }
+
+/* Small Mobile Sizing & Overflow Prevention */
+@media (max-width: 768px) {
+    .container {
+        padding: 0 1.25rem !important; /* Optimizes padding for mobile screens */
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 0 1rem !important; /* Maximizes screen real estate on tiny viewports */
+    }
+    
+    .contact-hero .section-title {
+        font-size: 1.8rem !important; /* Ensures long title fits on small screens */
+    }
+    
+    .contact-info-panel,
+    .contact-form-panel {
+        padding: 1.5rem !important; /* Breathing room without spilling */
+    }
+    
+    .info-link {
+        font-size: 1rem !important;
+        word-break: break-all !important; /* Forces the long email address to break cleanly instead of overflowing */
+        overflow-wrap: break-word !important;
+    }
+}
