@@ -3095,14 +3095,16 @@ body.emergency-mode {
     .hero-runway {
         height: 450vh !important; /* Keep the runway scroll height for scroll-hijacking */
         position: relative !important;
+        background: var(--hero-bg) !important; /* Preclude any white gap exposure during scrolling */
     }
     .hero-sticky {
         position: sticky !important; /* Lock the sticky context */
         top: 0 !important;
         height: 100vh !important;
-        height: 100svh !important; /* Maintain dynamic/short bounds */
+        height: 100dvh !important; /* Dynamically expand to full lvh as address bar retracts, preventing white bars */
         width: 100% !important;
         overflow: hidden !important;
+        background: var(--hero-bg) !important;
     }
     .hero-progress {
         display: none !important; /* Hide progress bar on mobile */
@@ -3129,7 +3131,7 @@ body.emergency-mode {
         justify-content: flex-end !important; /* Align content towards the bottom above the trust brand carousel */
         align-items: stretch !important;
         text-align: left !important;
-        padding: 85px 1.5rem calc(50px + 2rem) !important; /* Keep clear of the brand carousel (approx 50px tall) */
+        padding: 85px 1.5rem calc(50px + 1.5rem) !important; /* Keep clear of the brand carousel (approx 50px tall) */
         height: 100% !important;
         box-sizing: border-box !important;
         z-index: 10 !important;
@@ -3141,7 +3143,7 @@ body.emergency-mode {
         position: relative !important;
         height: 240px !important; /* Stable static height to prevent the rest of elements from shifting when text length changes */
         width: 100% !important;
-        margin-bottom: 0.8rem !important;
+        margin-bottom: 0.5rem !important;
         display: block !important;
     }
     .hero-phase {
@@ -3190,13 +3192,16 @@ body.emergency-mode {
         flex-direction: column !important;
         align-items: center !important;
         gap: 0.7rem !important;
-        margin-bottom: 1rem !important;
+        margin-left: 0 !important; /* Revert global 3rem right-shift on mobile! */
+        margin-top: 0 !important;
+        margin-bottom: 1.2rem !important;
     }
     .hero-ctas .btn {
         width: 85% !important; /* Unified button width on mobile for consistency */
         max-width: 300px !important;
         text-align: center !important;
         justify-content: center !important;
+        margin: 0 auto !important;
     }
     
     /* Order 3: Scroll hint (Centered) */
@@ -3206,7 +3211,7 @@ body.emergency-mode {
         display: flex !important;
         flex-direction: column !important;
         align-items: center !important;
-        margin: 0 auto 1rem !important;
+        margin: 0 auto 1.2rem !important; /* Spacing below to separate from certifications */
         animation: mobile-bounce 2s ease-in-out infinite !important;
         left: auto !important;
         opacity: 1 !important;
@@ -3215,14 +3220,20 @@ body.emergency-mode {
     /* Order 4: 3 Certifications (Centered) */
     .hero-trust {
         order: 4 !important;
+        position: relative !important; /* Revert absolute positioning to participate in flex flow! */
         display: flex !important;
         flex-direction: row !important;
         justify-content: center !important;
         align-items: center !important;
         width: 100% !important;
+        margin-left: 0 !important; /* Revert global 1rem right-shift on mobile! */
         margin-top: 0 !important;
-        margin-bottom: 0.8rem !important;
+        margin-bottom: 0.5rem !important;
+        bottom: auto !important; /* Cancel absolute positioning values */
+        left: auto !important;
+        right: auto !important;
         gap: 15px !important;
+        z-index: 15 !important;
     }
     .hero-trust span {
         font-size: 0.75rem !important;
