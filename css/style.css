@@ -3232,6 +3232,7 @@ body.emergency-mode {
         bottom: auto !important; /* Cancel absolute positioning values */
         left: auto !important;
         right: auto !important;
+        transform: none !important; /* Cancel global translateY(-65px) mobile lift that was causing overlapping! */
         gap: 15px !important;
         z-index: 15 !important;
     }
