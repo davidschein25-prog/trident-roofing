@@ -3212,9 +3212,8 @@ body.emergency-mode {
         flex-direction: column !important;
         align-items: center !important;
         margin: 0 auto 1.2rem !important; /* Spacing below to separate from certifications */
-        animation: mobile-bounce 2s ease-in-out infinite !important;
+        animation: mobile-pulse 2s ease-in-out infinite !important; /* Premium breathing/pulsating glow */
         left: auto !important;
-        opacity: 1 !important;
     }
     
     /* Order 4: 3 Certifications (Centered) */
@@ -3252,9 +3251,15 @@ body.emergency-mode {
     }
 }
 
-@keyframes mobile-bounce {
-    0%, 100% { transform: translateY(0) !important; }
-    50% { transform: translateY(15px) !important; }
+@keyframes mobile-pulse {
+    0%, 100% { 
+        opacity: 0.4;
+        transform: scale(0.95);
+    }
+    50% { 
+        opacity: 1;
+        transform: scale(1.05);
+    }
 }
 
 /* Small Mobile Sizing & Overflow Prevention */
