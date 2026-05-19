@@ -3207,7 +3207,7 @@ body.emergency-mode {
     /* Order 3: Scroll hint (Centered) */
     .scroll-hint {
         order: 3 !important;
-        position: relative !important; /* Force GPU compositing context in sticky container */
+        position: static !important;
         display: flex !important;
         flex-direction: column !important;
         align-items: center !important;
@@ -3215,7 +3215,6 @@ body.emergency-mode {
         animation: mobile-bounce 2s ease-in-out infinite !important;
         left: auto !important;
         opacity: 1 !important;
-        will-change: transform !important; /* Force hardware layer rendering */
     }
     
     /* Order 4: 3 Certifications (Centered) */
@@ -3254,8 +3253,8 @@ body.emergency-mode {
 }
 
 @keyframes mobile-bounce {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(12px); }
+    0%, 100% { transform: translateY(0) !important; }
+    50% { transform: translateY(15px) !important; }
 }
 
 /* Small Mobile Sizing & Overflow Prevention */
