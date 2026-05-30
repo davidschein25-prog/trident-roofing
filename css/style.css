@@ -2222,7 +2222,7 @@ body.emergency-mode {
     border-radius: var(--radius-sm);
     font-family: inherit;
     font-size: 1rem;
-    color: var(--primary-bg);
+    color: var(--text-main);
     transition: var(--transition-premium);
 }
 
