@@ -119,7 +119,7 @@ export default async function handler(req, res) {
         `.trim();
 
         const { data, error } = await resend.emails.send({
-            from: 'Roofing Website <leads@send.tridentroofingandexteriors.ca>',
+            from: 'Roofing Website <leads@tridentroofingandexteriors.ca>',
             to: 'info@tridentroofingandexteriors.ca',
             subject: `New Lead: ${name} — Trident Roofing Website`,
             html: htmlBody,
