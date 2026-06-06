@@ -423,7 +423,7 @@ function initServiceModals() {
                 'Full Tear-Off: We strip to the deck to inspect for rot.',
                 'Ice & Water Shield: Critical protection for valleys and eaves.',
                 'Synthetic Underlayment: High-performance moisture barrier.',
-                'Master Certified Install: Backed by manufacturer warranties.',
+                'Certified Installation: Backed by manufacturer warranties.',
                 'Canadian-Sourced: Using IKO and Westlake Royal materials.'
             ],
             cta: 'Schedule a Roofing Consultation'
